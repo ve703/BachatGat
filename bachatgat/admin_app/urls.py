@@ -8,3 +8,4 @@ urlpatterns = [
     path('app_admin/members/', views.memberlist, name='members'),
     path('app_admin/members_details/', views.memberdetails, name='members_details')
 ]
+

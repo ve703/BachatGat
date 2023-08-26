@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from .form import UserRegistrationForm
 from .models import profile
 
+ 
+
 #def admin_app(request):
 #    template = loader.get_template('firstpage.html')
 #    return HttpResponse(template.render)
@@ -38,3 +40,4 @@ def register_member(request):
     else:
         form = UserRegistrationForm()
     return render(request, 'register.html', {'form': form})
+
