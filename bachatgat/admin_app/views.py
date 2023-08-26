@@ -2,6 +2,8 @@ from django.shortcuts import render , redirect
 from django.http import HttpResponse
 from .form import UserRegistrationForm
 from .models import profile
+from django.conf import settings
+from django.core.mail import send_mail
 
  
 
@@ -40,4 +42,12 @@ def register_member(request):
     else:
         form = UserRegistrationForm()
     return render(request, 'register.html', {'form': form})
+
+def schedule_meet(request):
+   subject = 'welcome to GFG world'
+   message = f'Hi {profile.username}, thank you for registering in geeksforgeeks.'
+   email_from = settings.EMAIL_HOST_USER
+   recipient_list = [profile.email]
+   send_mail( subject, message, email_from, recipient_list) 
+   return render(request, 'firstpage.html')
 

@@ -4,6 +4,7 @@ from django.db import models
 class profile(models.Model):
     name = models.CharField(max_length=100)
     account_no = models.CharField(max_length=100)
+    # account_no = models.OneToOneField(User, on_delete=models.CASCADE)
     aadhar_no = models.CharField(max_length=100)
     pan_no = models.CharField(max_length=100,default='Your Default Address')
     email = models.EmailField(max_length=100,default='Your Default Address')

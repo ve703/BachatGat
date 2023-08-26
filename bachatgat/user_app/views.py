@@ -14,6 +14,25 @@ from .serializers import LoginSerializer
 def home(request):
    return render(request, 'index.html')
 
+from django.contrib.auth.backends import ModelBackend
+from admin_app.models import profile  # Import your Profile model
+
+# class ProfileModelBackend(ModelBackend):
+#     def authenticate(self, request, username=None, password=None, **kwargs):
+#         try:
+#             profile = profile.objects.get(username=username)  # Replace with appropriate lookup
+#             if profile.check_password(password):
+#                 return redirect("home")
+#   # Assuming your Profile model has a OneToOneField to User
+#         except profile.DoesNotExist:
+#             return None
+
+    # def get_user(self, user_id):
+    #     try:
+    #         return profile.objects.get(user_id=user_id).id
+    #     except profile.DoesNotExist:
+    #         return None
+
 def user_login(request):
     forms = UserLoginForm()
     if request.method == "POST":
