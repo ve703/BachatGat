@@ -17,7 +17,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+# import views from todo
+from user_app import views
+
+from rest_framework import routers
+ 
+# create a router object
+router = routers.DefaultRouter()
+ 
+# register the router
+router.register(r'login',views.LoginView, 'login')
+
 urlpatterns = [
     path('', include('admin_app.urls')),
+    path('', include('user_app.urls')),
     path('admin/', admin.site.urls),
+    path('api/', include(router.urls)),
 ]
