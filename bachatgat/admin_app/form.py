@@ -1,5 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
+from .models import MeetingEvent
+from django.contrib.admin.widgets import AdminDateWidget, AdminTimeWidget
 from .models import profile
 
 class UserRegistrationForm(forms.ModelForm):
@@ -25,3 +27,4 @@ class UserRegistrationForm(forms.ModelForm):
     class Meta:
         model = profile
         fields = ['name', 'account_no', 'aadhar_no','pan_no','email','mobile','username','password','birthday','address','city','state','zip',]
+
